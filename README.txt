@@ -1,12 +1,15 @@
 # make_ext4fs
-ROM editor tools
+ROM tools
 
 linux环境解包打包
 
 环境要求：linux
 此处以system.img和userdata.img打包为例,基于谷歌源码编译的工具使用方法和命令。
+把要解包打包打boot.img和各种格式的system放到本目录，支持，system.new.dat,system.new.dat.br和system.img各种转换和解包打包！
 
 给予权限:
+chmod a+x mkbootimg
+chmod a+x mkbootfs
 chmod a+x brotli
 chmod a+x img2sdat.py
 chmod a+x make_ext4fs
@@ -16,7 +19,13 @@ chmod a+x rimg2sdat.py
 chmod a+x simg2img
 chmod a+x sdat2img.py
 
+boot和recovery解包打包命令：
+解包boot命令./mkboot boot.img boot
+解包recovery命令：./mkboot recovery.img recovery
+打包命令 ./mkboot boot newimgname.img
+打包recovery命令：./mkboot recovery recovery_new.img
 
+newimgname.img是打包好的boot，支持高通
 
 1.转换格式
 system.new.dat.br转换成system.new.dat
