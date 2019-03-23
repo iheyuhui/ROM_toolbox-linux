@@ -7,19 +7,26 @@ linux环境解包打包
 此处以system.img和userdata.img打包为例,基于谷歌源码编译的工具使用方法和命令。
 
 给予权限:
+chmod a+x brotli
 chmod a+x img2sdat.py
 chmod a+x make_ext4fs
 chmod a+x ext2simg
 chmod a+x mkuserimg.sh
+chmod a+x rimg2sdat.py
 chmod a+x simg2img
 
 
 
 1.转换格式
+system.new.dat.br转换成system.new.dat
+命令：brotli -d system.new.dat.br
+或者brotli -d vendor.new.dat.br
+
 把system.new.dat解包为system.img(raw image)
 命令：
 
     ./sdat2img.py system.transfer.list system.new.dat system.img
+或者：./sdat2img.py vendor.transfer.list vendor.new.dat vendor.img
 
 在解包过程中，system或者userdata镜像文件经常以两种格式出现：raw和sparse。
 
@@ -51,6 +58,11 @@ $ ./make_ext4fs -s -T 1421464178 -S file_contexts -l 1073741824 -a system new_sy
 
 或者：
 ./make_ext4fs -s  -S file_contexts -l 2048M -a system new_system.img system/
+
+sudo umount tmp 卸载tmp目录，建议修改后直接卸载img目录不容易出问题
+system.img转换成system.new.dat
+命令：
+
 
 命令参数说明：
 // -s 表示安静处理，不输出动作，可以不带该参数
