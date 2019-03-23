@@ -14,6 +14,7 @@ chmod a+x ext2simg
 chmod a+x mkuserimg.sh
 chmod a+x rimg2sdat.py
 chmod a+x simg2img
+chmod a+x sdat2img.py
 
 
 
