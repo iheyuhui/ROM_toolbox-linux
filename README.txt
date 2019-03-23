@@ -60,12 +60,6 @@ $ ./make_ext4fs -s -T 1421464178 -S file_contexts -l 1073741824 -a system new_sy
 或者：
 ./make_ext4fs -s  -S file_contexts -l 2048M -a system new_system.img system/
 
-sudo umount tmp 卸载tmp目录，建议修改后直接卸载img目录不容易出问题
-system.img转换成system.new.dat
-命令：
-./rimg2sdat.py system.img
-或者：./rimg2sdat.py vendor.img
-
 命令参数说明：
 // -s 表示安静处理，不输出动作，可以不带该参数
 // -T 表示Unix时间戳，对system.img中的文件设置修改时间，执行“
@@ -77,3 +71,14 @@ date +%s”获取某个时间点的时间戳,也可以直接不用-T 1421464178�
 // system/ 表示输入目录，该目录下有framework、app、bin等目录；
 
 上述的simg2img和make_ext4fs是android自带的工具，如果有android源码而且编译通过的话， 这些工具可以在/out/host/linux-x86/bin中找到。
+
+sudo umount tmp 卸载tmp目录，建议修改后直接卸载img目录不容易出问题
+system.img转换成system.new.dat
+命令：
+./rimg2sdat.py system.img
+vendor先改名system，转换好再改名回去就行。
+
+system.new.dat压缩成system.new.dat.br
+命令：brotli -q 6 system.new.dat -o system.new.dat.br
+6代表压缩级别，可以选择1-9,选择6最慢，压缩也最小，谷歌官方建议6
+
