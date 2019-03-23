@@ -80,5 +80,5 @@ vendor先改名system，转换好再改名回去就行。
 
 system.new.dat压缩成system.new.dat.br
 命令：brotli -q 6 system.new.dat -o system.new.dat.br
-6代表压缩级别，可以选择1-9,选择6最慢，压缩也最小，谷歌官方建议6
+6代表压缩级别，可以选择1-9,选择9最慢，压缩也最小，谷歌官方建议6
 
