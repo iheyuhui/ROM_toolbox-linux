@@ -20,12 +20,12 @@ chmod a+x simg2img
 chmod a+x sdat2img.py
 
 boot和recovery解包打包命令：
-解包boot命令./mkboot boot.img boot
+解包boot命令:./mkboot boot.img boot
 解包recovery命令：./mkboot recovery.img recovery
-打包命令 ./mkboot boot newimgname.img
+打包boot命令: ./mkboot boot newimgname.img
 打包recovery命令：./mkboot recovery recovery_new.img
 
-newimgname.img是打包好的boot，支持高通
+newimgname.img是打包好的boot，支持高通有dt.img机型
 
 1.转换格式
 system.new.dat.br转换成system.new.dat
@@ -74,7 +74,7 @@ $ ./make_ext4fs -s -T 1421464178 -S file_contexts -l 1073741824 -a system new_sy
 // -T 表示Unix时间戳，对system.img中的文件设置修改时间，执行“
 date +%s”获取某个时间点的时间戳,也可以直接不用-T 1421464178 ；
 // -S 表示sepolicy 的file_contexts，把该文件放到此目录下，文件取自官方system/root路径或者卡刷包自带（解压内核，在内核里面）
-// -l 表示最大的文件大小（受限于分区大小）；可以ls -l 当前转格式出来的system大小、单位也可以为MB
+// -l 表示最大的文件大小（受限于分区大小）；添加boot和rec打包解 包工具可以ls -l 当前转格式出来的system大小、单位也可以为MB
 // -a 表示Android的mount点，比如system、userdata、recovery；
 // oksystem.img 表示输出文件名；
 // system/ 表示输入目录，该目录下有framework、app、bin等目录；
