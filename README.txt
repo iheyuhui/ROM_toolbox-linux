@@ -62,7 +62,8 @@ $ ./make_ext4fs -s -T 1421464178 -S file_contexts -l 1073741824 -a system new_sy
 sudo umount tmp 卸载tmp目录，建议修改后直接卸载img目录不容易出问题
 system.img转换成system.new.dat
 命令：
-
+./rimg2sdat.py system.img
+或者：./rimg2sdat.py vendor.img
 
 命令参数说明：
 // -s 表示安静处理，不输出动作，可以不带该参数
